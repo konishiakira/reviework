@@ -1,0 +1,151 @@
+// 下線部削除
+a {
+  text-decoration: none;
+}
+
+header{
+  height:100px;
+  width: 100%;
+  background-color: lightgray;
+ }
+
+.main {
+  background: #f8f8f8;  
+}
+
+// ジャンルの名前の位置（リスト）
+.category{
+  display: flex;
+  text-align:center;
+  padding:20px;
+  list-style: none;
+  margin: auto;
+  // justify-content: space-around;
+}
+
+// ジャンルの名前の位置
+.category-name{
+  border-style: solid;
+  border-width:medium;
+  padding:20px 20px;
+  margin: 30px;
+}
+
+
+// ログインと新規登録の位置
+.lists-right {
+  display: flex;
+  text-align:center;
+  padding:20px 20px;
+  list-style: none;
+  // margin-left: auto;
+}
+
+.login{
+  padding:20px 20px;
+}
+
+.sign-up{
+  padding:20px 20px;
+}
+
+.search-bar-contents{
+  display: flex;
+}
+
+.service-explain{
+  text-align:center;
+  
+}
+
+.center{
+  display: flex;
+  // height: 100vh;
+  background-color: #253141;
+  justify-content: space-around;
+}
+
+.side{
+  background-color: #2F3E51;
+  // height: calc(100vh - 100px);
+  width: calc(100vh - 60px);
+  padding: 0 40px;
+  // width: 60px;
+  text-align: center;
+}
+
+.books-floor{
+  background-color: rebeccapurple;
+  width: 1000px;
+  padding: 0 60px;
+  // display: flex;
+}
+
+.book-border{
+  padding: 20px 30px;
+  background-color: saddlebrown;
+}
+
+// 本棚の上の部分
+.books-lists-top{
+  width: 100%;
+  height: 30px;
+  background-color: #2F3E51;
+}
+
+// 本の隙間
+.books-lists-gap{
+  width: 100%;
+  height: 25px;
+  background-color: honeydew;
+}
+
+// 本棚の本を置くところ
+.books-lists{
+  // width: 100%;
+  // padding-left: 10px;
+  // padding-right: 10px;
+  height: 180px;
+  background-color: lightgreen;
+  display: flex;
+}
+
+// 本を乗せるところ
+.books-lists-under{
+  width: 100%;
+  height: 30px;
+  background-color: #2F3E51;
+}
+
+.books{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  background-color: lightcyan;
+  border-style: solid;
+  border-width:thick;
+  // text-align: end;
+  // align-items: flex-end;
+}
+.book{
+  // width:400px;
+  // height: 100px;
+  display: table-cell; /* IE8から使用可能 */
+  // vertical-align: middle;
+  // padding:0 20px 20px 0;
+  // text-orientation:sideways;
+  writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  display: inline-block;/* 文字列ぶんのブロックにする */
+  background-color: red;
+  // text-align:center;
+  align-items: center;
+}
+
+
+.ad-footer-contents{
+  height:100px;
+  width: 100%;
+  background-color: lightgray;
+ }

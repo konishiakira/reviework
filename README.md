@@ -1,5 +1,5 @@
 # README
-●アプリケーション名：Reviework
+●アプリケーション名：Reviework（レビュアーク）
 
 ●アプリケーション概要  
 ・ユーザー登録  
@@ -134,7 +134,7 @@ GyazoGIFで撮影すること。
 | name               | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
-| birthday           | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 - has_many :pages
