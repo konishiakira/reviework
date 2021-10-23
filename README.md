@@ -155,10 +155,11 @@ GyazoGIFで撮影すること。
 
 ## pages テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| title  | string     | null: false                    |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| title       | string     | null: false                    |
+| category_id | integer    | null: false                    |
 
 ### Association
 - belongs_to :user

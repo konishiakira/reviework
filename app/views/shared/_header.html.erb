@@ -1,8 +1,9 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
-    <h1>Reviework</h1>
-
+    <ul class='lists-right'>
+      <li><%= link_to 'Reviework', root_path, class: "home-tile" %></li>
+    </ul>
     <ul class='category'>
         <li><%= link_to 'アニメ', animes_path, class: "category-name" %></li> 
         <li><%= link_to 'マンガ', mangas_path,class: "category-name" %></li>
@@ -13,8 +14,8 @@
 
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.name, root_path, class: "user-nickname" %></li> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
+        <li><%= link_to current_user.name, root_path, class: "login" %></li> 
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sign-up"%> </li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>

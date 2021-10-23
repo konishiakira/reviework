@@ -4,13 +4,22 @@ a {
 }
 
 header{
-  height:100px;
+  // height:100px;
   width: 100%;
   background-color: lightgray;
  }
 
 .main {
   background: #f8f8f8;  
+}
+
+// タイトル
+.home-tile{
+  display: flex;
+  text-align:center;
+  padding:20px;
+  list-style: none;
+  margin: auto;
 }
 
 // ジャンルの名前の位置（リスト）
@@ -36,17 +45,26 @@ header{
 .lists-right {
   display: flex;
   text-align:center;
-  padding:20px 20px;
+  // padding:20px 20px;
+  // padding:20px;
   list-style: none;
   // margin-left: auto;
 }
 
 .login{
-  padding:20px 20px;
+  display: flex;
+  text-align:center;
+  padding:20px;
+  list-style: none;
+  margin: auto;
 }
 
 .sign-up{
-  padding:20px 20px;
+  display: flex;
+  text-align:center;
+  padding:20px;
+  list-style: none;
+  margin: auto;
 }
 
 .search-bar-contents{
@@ -56,6 +74,15 @@ header{
 .service-explain{
   text-align:center;
   
+}
+
+// ログイン状態のユーザに対する文章
+.home-name{
+  text-align: center;
+}
+
+.user-name{
+  color: deeppink;
 }
 
 .center{
