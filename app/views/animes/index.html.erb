@@ -8,14 +8,18 @@
     </div>
 
     <div class='books-floor'>
-      <p class='service-explain'>
-        Revieworkにようこそ。
-      </p>
+      <ul class= 'home-name'>
+        <% if user_signed_in? %>
+          <%= link_to current_user.name, root_path, class: "user-name" %>
+            さん　Revieworkにようこそ。
+        <% else %>
+          <p class='service-explain'>
+            Revieworkにようこそ。
+          </p>
+        <%end%>
+      </ul>
       <p class='service-explain'>
         本サイトはアニメ、マンガ、ゲーム、映画に関するレビューサイトです。
-      </p>
-      <p class='service-explain'>
-        ※コンテンツの無断複写、転載を禁止します。
       </p>
       <p class='service-explain'>
         アニメ

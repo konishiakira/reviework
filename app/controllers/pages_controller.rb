@@ -9,12 +9,16 @@ class PagesController < ApplicationController
   
   def create
     @page = Page.new(page_params)
-    # @page = Item.new(page_params)
     if @page.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  # 作品レビューページへ遷移
+  def show
+    @page = Page.find(params[:id])
   end
 
   private
