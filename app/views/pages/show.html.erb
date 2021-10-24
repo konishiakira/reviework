@@ -1,11 +1,36 @@
 <%= render "shared/header" %>
 <div class='main'>
   <div class='top'>
+    <div class='title-text'><%= "#{@page.title}　レビュページ" %></div>
+    <div class='title-text'><%= "レビュアーの：#{@page.title}のイメージ：　#{@page.title}　" %></div>
   </div>
 
   <div class='review-center'>
-    <div class='review-push'></div>
-    <div class='review-data'></div>
+    <div class='review-push'>
+      レビュー投稿（review-push）
+      <div class='review-push-in'>
+        レビュー投稿フォーム（review-push-in）
+
+
+        <%= form_for @review do |f| %>
+          <%= f.hidden_field :page_id, value: @page.id %>
+          <%= f.text_field :comment, class: "text-field" %>
+          <%= f.submit '投稿', class: "submit-btn" %>
+        <% end %>
+
+
+      </div>
+    </div>
+    <div class='review-data'>
+      本作品のレビュー内容（review-data）
+      <div class='review-data-in'>
+        <%# <div class='review-data-user'> %>
+          <% @reviews.each do |r| %>
+            <p class='comment'><%= r.comment %></p>
+          <% end %>
+        <%# </div> %>
+      </div>
+    </div>
   </div>
 </div>
 <%= render "shared/footer" %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#index"
   resources :pages
+  resources :reviews
 
   # get 'pages/pages', to: 'pages#anime'
   # get 'pages/pages', to: 'pages#manga'

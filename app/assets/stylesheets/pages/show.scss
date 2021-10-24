@@ -1,14 +1,88 @@
+// 評価アイコンや統計、タイトル表示
 .top{
-  margin-left: auto;
-  margin-right: auto;
-  width: 8em
+  background: lightgray;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
 }
 
+.title-text{
+  color: deeppink;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// 中央のレビュー投稿とレビュー表示画面
 .review-center{
   margin-left: auto;
   margin-right: auto;
-  width: 8em;
+  // width: 8em;
+  height: 600px;
   display: flex;
+}
+// .review-center{
+//   display: flex;
+//   // height: 100vh;
+//   background-color: #253141;
+//   justify-content: space-around;
+// }
+
+// 中央のレビュー投稿位置
+.review-push{
+  background-color: #2F3E51;
+  // height: calc(100vh - 100px);
+  width: calc(100vh - 60px);
+  padding: 0 40px;
+  // width: 60px;
+  text-align: center;
+}
+
+// 中央のレビュー投稿位置内側
+.review-push-in{
+  margin: 10px;
+  background-color: deepskyblue;
+  height: 200px;
+}
+
+
+// 中央のレビュー表示
+.review-data{
+  background-color: rebeccapurple;
+  width: 1000px;
+  padding: 0 60px;
+  // display: flex;
+}
+
+// 中央のレビュー表示内側
+.review-data-in{
+  height: 500px;
+  margin: 10px;
+  background-color: lightsalmon;
+  position: relative;
+  // display: flex;
+  // align-items: top;
+  // justify-content: center;
+}
+
+.review-data-user{
+  width:90%;
+  height: 100px;
+  margin: 30px;
+  background-color: aqua;
+  // position: absolute;
+  ;
+}
+
+.comment{
+
+  padding: 10px;
+  background-color: darkseagreen;
 }
 
 // display: flex;

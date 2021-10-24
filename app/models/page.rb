@@ -1,6 +1,6 @@
 class Page < ApplicationRecord
   belongs_to :user
-  has_many :review  
+  has_many :reviews  
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

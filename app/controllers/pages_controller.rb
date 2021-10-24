@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
 
   def index
+    query = "SELECT * FROM pages"
+    @pages = Page.find_by_sql(query)
   end
 
   def new
@@ -19,6 +21,11 @@ class PagesController < ApplicationController
   # 作品レビューページへ遷移
   def show
     @page = Page.find(params[:id])
+
+    
+    @review = Review.new 
+    @reviews = @page.reviews  # 追記
+
   end
 
   private

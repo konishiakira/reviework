@@ -26,7 +26,7 @@ header{
 .category{
   display: flex;
   text-align:center;
-  padding:20px;
+  // padding:20px;
   list-style: none;
   margin: auto;
   // justify-content: space-around;
@@ -132,7 +132,7 @@ header{
   // width: 100%;
   // padding-left: 10px;
   // padding-right: 10px;
-  height: 180px;
+  height: 250px;
   background-color: lightgreen;
   display: flex;
 }
@@ -145,6 +145,7 @@ header{
 }
 
 .books{
+  width: 25px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
@@ -156,7 +157,7 @@ header{
   // align-items: flex-end;
 }
 .book{
-  // width:400px;
+  // width:20px;
   // height: 100px;
   display: table-cell; /* IE8から使用可能 */
   // vertical-align: middle;
