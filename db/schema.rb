@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_051055) do
+ActiveRecord::Schema.define(version: 2021_10_24_141206) do
 
   create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -19,6 +19,25 @@ ActiveRecord::Schema.define(version: 2021_10_23_051055) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_pages_on_user_id"
+  end
+
+  create_table "repls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "review_id", null: false
+    t.text "repl", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["review_id"], name: "index_repls_on_review_id"
+    t.index ["user_id"], name: "index_repls_on_user_id"
+  end
+
+  create_table "review_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "review_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["review_id"], name: "index_review_users_on_review_id"
+    t.index ["user_id"], name: "index_review_users_on_user_id"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,6 +65,10 @@ ActiveRecord::Schema.define(version: 2021_10_23_051055) do
   end
 
   add_foreign_key "pages", "users"
+  add_foreign_key "repls", "reviews"
+  add_foreign_key "repls", "users"
+  add_foreign_key "review_users", "reviews"
+  add_foreign_key "review_users", "users"
   add_foreign_key "reviews", "pages"
   add_foreign_key "reviews", "users"
 end

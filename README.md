@@ -139,7 +139,7 @@ GyazoGIFで撮影すること。
 ### Association
 - has_many :pages
 - has_many :reviews
-- has_many :replys
+- has_many :repls
 - has_many :dm_users
 - has_many :dms, through: :dm_users
 - has_many :bans
@@ -178,7 +178,7 @@ GyazoGIFで撮影すること。
 ### Association
 - belongs_to :page
 - belongs_to :user
-- has_many :replys
+- has_many :repls
 - has_many :crys
 - has_many :cools
 - has_many :cutes
@@ -188,13 +188,27 @@ GyazoGIFで撮影すること。
 - has_many :interestings
 - has_many :thought_provokings
 
-## replys テーブル
+
+## review_user テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| review  | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+
+
+### Association
+- belongs_to :user
+- belongs_to :review
+
+
+## repls テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
 | review  | references | null: false, foreign_key: true |
-| rep     | string     |                                |
+| repl    | text       |                                |
 
 ### Association
 - belongs_to :user

@@ -4,14 +4,18 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#index"
   resources :pages
-  resources :reviews
+  resources :reviews do
+    resources :repls, only: :create
+  end
+  # resources :repls
 
-  # get 'pages/pages', to: 'pages#anime'
-  # get 'pages/pages', to: 'pages#manga'
-  # get 'pages/pages', to: 'pages#game'
-  # get 'pages/pages', to: 'pages#move'
+  # do
+  #   resources :comments, only: :create
+  #   collection do
+  #     get 'search'
+  #   end
+  # end
 
-  # get 'posts/new', to: 'posts#new'
   resources :animes
   resources :mangas
   resources :games

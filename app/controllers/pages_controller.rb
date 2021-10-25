@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new
+    @review = Review.new
   end
   
   def create
@@ -26,12 +27,14 @@ class PagesController < ApplicationController
     @review = Review.new 
     @reviews = @page.reviews  # 追記
 
+    # <%= form_with(model: [@review, @repl], local: true) do |form| %>
+    # @repls = @reviews.repls.includes(:review)
   end
 
   private
 
   def page_params
-    params.require(:page).permit(:title,:category_id).merge(user_id: current_user.id)
+    params.require(:page).permit(:title,:category_id,:user_id).merge(user_id: current_user.id)
   end
 
 end
