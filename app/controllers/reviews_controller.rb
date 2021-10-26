@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def index
+
   end
 
   def new
@@ -7,9 +8,11 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @review = Review.new(review_params)
-
-    if @review.save
+    @review_repl = Review.new(review_repl_params)
+    # binding.pry
+    if @review.save || @review_repl.save
       redirect_to page_path(@review.page)
     else
 
@@ -18,10 +21,20 @@ class ReviewsController < ApplicationController
       @pages = Page.find_by_sql(query)
       render "pages/index"
     end
+
+
+  end
+
+  def show
+
   end
 
   private
   def review_params
-    params.require(:review).permit(:comment).merge(user_id: current_user.id,page_id: params[:review][:page_id])
+    params.require(:review).permit(:comment,:repl).merge(user_id: current_user.id,page_id: params[:review][:page_id])
+  end
+
+  def review_repl_params
+    params.require(:review).permit(:comment,:repl).merge(user_id: current_user.id,page_id: params[:review][:page_id])
   end
 end

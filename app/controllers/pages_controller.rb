@@ -23,13 +23,37 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
 
-    
     @review = Review.new 
     @reviews = @page.reviews  # 追記
+  
+    # @repls = Review.find(page_id: params[:page_id])
+    # @repls = @page.reviews.includes(:user)
+    # @rev = 
 
-    # <%= form_with(model: [@review, @repl], local: true) do |form| %>
-    # @repls = @reviews.repls.includes(:review)
+    # @repl_list = @reviews.ids
+    @repl = Review.new(page_id: params[:page_id], user_id: params[:user_id])
+    
+    # binding.pry
+    # @comments = @tweet.comments.includes(:user)
+
   end
+
+  def update
+    # binding.pry
+    @page = Page.find(params[:format])
+    # @repl_id = r.id
+    @url = params[:id]
+    @review = Review.new
+    @reviews = @page.reviews  # 追記
+
+    @review_repl = Review.new
+
+    # @repl = Review.new(page_id: params[:page_id], user_id: params[:user_id])
+    
+
+  end
+
+
 
   private
 

@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.references  :page, null: false, foreign_key: true
       t.references  :user, null: false, foreign_key: true
       t.text :comment,null: false
+      t.integer  :repl
       t.timestamps
     end
   end

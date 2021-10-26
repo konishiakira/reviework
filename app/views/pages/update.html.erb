@@ -22,6 +22,12 @@
         <% end %>
 
 
+        <%= form_for @review_repl do |f| %>
+          <%= f.hidden_field :page_id, value: @page.id %>
+          <%= f.hidden_field :repl, value: @url %>
+          <%= f.text_field :comment, class: "text-field" %>
+          <%= f.submit '投稿', class: "submit-btn" %>
+        <% end %>
 
 
 
@@ -40,10 +46,8 @@
                 <%= r.comment %>
                 <%= r.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
                 テスト
+              <%= link_to "返信", page_path(r.page.id), method: :put %>
 
-                <% if current_user.id != r.user_id %>
-                  <%= link_to "返信", page_path(r.page.id, id: r.id), method: :put %>
-                <% end %>
             <%#= form_for @repl do |f| %>
               <%#= f.hidden_field :id, value: @repls.id %>
               <%#= f.hidden_field :page_id, value: @page.id %>
