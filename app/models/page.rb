@@ -5,6 +5,9 @@ class Page < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
+
+  has_many :crs
+
 end
 # ### Association
 # - belongs_to :user

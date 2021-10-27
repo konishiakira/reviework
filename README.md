@@ -144,7 +144,7 @@ GyazoGIFで撮影すること。
 - has_many :dms, through: :dm_users
 - has_many :bans
 - has_many :blocks
-- has_many :crys
+- has_many :crs
 - has_many :cools
 - has_many :cutes
 - has_many :scareds
@@ -179,7 +179,7 @@ GyazoGIFで撮影すること。
 - belongs_to :page
 - belongs_to :user
 - has_many :repls
-- has_many :crys
+- has_many :crs
 - has_many :cools
 - has_many :cutes
 - has_many :scareds
@@ -215,101 +215,101 @@ GyazoGIFで撮影すること。
 - belongs_to :review
 
 
-## crys テーブル
+## crs テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## cools テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## cutes テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## scareds テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## healings テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## funs テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## interestings テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## thought_provokings テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| review | references | null: false, foreign_key: true |
+| page   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :page
 
 ## dm_users テーブル
 

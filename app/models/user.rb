@@ -11,11 +11,13 @@ class User < ApplicationRecord
   has_many :pages
   has_many :repls
 
+  has_many :crs
+  # has_many :likes
   # has_many :dm_users
   # has_many :dms, through: :dm_users
   # has_many :bans
   # has_many :blocks
-  # has_many :crys
+
   # has_many :cools
   # has_many :cutes
   # has_many :scareds

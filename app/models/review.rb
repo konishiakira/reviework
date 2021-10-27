@@ -8,6 +8,9 @@ class Review < ApplicationRecord
   belongs_to :user
   has_many :reps
 
+  # has_many :crs
+  # has_many :likes
+
   # has_many :crys
   # has_many :cools
   # has_many :cutes
@@ -21,7 +24,7 @@ end
 # - belongs_to :page
 # - belongs_to :user
 # - has_many :reps
-# - has_many :crys
+
 # - has_many :cools
 # - has_many :cutes
 # - has_many :scareds

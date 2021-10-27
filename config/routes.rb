@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :reviews do
     resources :repls, only: :create
   end
+
+  post "crs/:page_id/create", to: "crs#create", constraints: {page_id: /\d+/}, as: :crs_create
+  post "crs/:page_id/delete", to: "crs#delete", constraints: {page_id: /\d+/}, as: :crs_delete
+
   # resources :repls
 
   # do
@@ -16,6 +20,7 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  
   resources :animes
   resources :mangas
   resources :games

@@ -3,6 +3,9 @@
   <div class='top'>
     <div class='title-text'><%= "#{@page.title}　レビュページ" %></div>
     <div class='title-text'><%= "レビュアーの：#{@page.title}のイメージ：　#{@page.title}　" %></div>
+
+    <%= @like_count = Cr.where(page_id: params[:id]).count %>
+
   </div>
 
 
@@ -14,18 +17,27 @@
       <div class='review-push-in'>
         レビュー投稿フォーム（review-push-in）
 
+        <%# 感情アイコンの選択 %>
+        <div class="buttons_<%= @food.id %>"><%= render partial: 'crs/cr' %></div>
+        <%# ここに表示しているいいね機能を正常にカウントさせ、保持し、アップデートビューにてレビュー投稿表示側に値を表示させる %>
+        <%#// 感情アイコンの選択 %>
 
         <%= form_for @review do |f| %>
           <%= f.hidden_field :page_id, value: @page.id %>
           <%= f.text_field :comment, class: "text-field" %>
           <%= f.submit '投稿', class: "submit-btn" %>
         <% end %>
-
-
-
-
-
       </div>
+
+
+      <div class='review-push-in'>
+        <% if r.repl == nil %>
+          <%= r.user.name %>
+          <%= r.comment %>
+          <%= r.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        <% end %>
+      </div>
+
     </div>
     <div class='review-data'>
       本作品のレビュー内容（review-data）

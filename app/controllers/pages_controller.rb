@@ -12,12 +12,14 @@ class PagesController < ApplicationController
   end
   
   def create
+    # binding.pry
     @page = Page.new(page_params)
     if @page.save
       redirect_to root_path
     else
       render :new
     end
+
   end
 
   # 作品レビューページへ遷移
@@ -28,7 +30,13 @@ class PagesController < ApplicationController
     @reviews = @page.reviews  # 追記
   
     @repl = Review.new(page_id: params[:page_id], user_id: params[:user_id])
-    
+    # @like_count = Like.where(food_id: params[:food_id]).count
+
+    # いいね表示確認
+    @like = Cr.new(page_id: params[:id],user_id: current_user.id)
+    @food = Page.find_by(id: @like.page_id)
+    @like_count = Cr.where(page_id: params[:id]).count
+
   end
 
   def update
