@@ -1,23 +1,31 @@
-    <h2 class="work-title">レビュー作品作成</h2>
+<%= render "shared/header" %>
+<div class='main'>
+  <div class='center'>
+<div class="new-back">
+    <h2 class="service-explain">レビュー作品作成</h2>
     <%= form_with model:@page,url: pages_path, method: :post, local: true do |f| %>
 
     <%# <%= render 'shared/error_messages', model: f.object %>
 
     <div class="new-title-box">
-      <div class="weight-bold-text">
+      <div class="service-explain">
         カテゴリ
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
 
-      <div class="weight-bold-text">
+      <div class="service-explain">
         作品名
-        <span class="indispensable">必須</span>
+        <span class="service-explain">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"作品名を入力", maxlength:"40" %>
       <div class="sell-btn-contents">
         <%= f.submit "レビューページを作成する" ,class:"sell-btn" %>
         <%=link_to 'もどる', root_path, class:"back-btn" %>
       </div>
     </div>
   <% end %>
+</div>
+</div>
+</div>
+<%= render "shared/footer" %>

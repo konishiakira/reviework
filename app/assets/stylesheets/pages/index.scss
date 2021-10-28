@@ -6,7 +6,10 @@ a {
 header{
   // height:100px;
   width: 100%;
-  background-color: lightgray;
+  // height: 100px;
+  background: rosybrown;
+  // text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);  
+  // background-image: image-url('book_yoko_2');
  }
 
 .main {
@@ -20,6 +23,8 @@ header{
   padding:20px;
   list-style: none;
   margin: auto;
+  color: #f8f8f8;
+  font-size: 20px;
 }
 
 // ジャンルの名前の位置（リスト）
@@ -38,6 +43,8 @@ header{
   border-width:medium;
   padding:20px 20px;
   margin: 30px;
+  border-color: midnightblue;
+  color: midnightblue;
 }
 
 
@@ -73,6 +80,7 @@ header{
 
 .service-explain{
   text-align:center;
+  color: #f8f8f8;
   
 }
 
@@ -90,28 +98,49 @@ header{
   // height: 100vh;
   background-color: #253141;
   justify-content: space-around;
+  // background-image: image-url('22226889.jpg');
 }
 
-.side{
+.side-left{
+  background-color: #2F3E51;
+  // height: calc(100vh - 100px);
+  width: calc(100vh - 60px);
+  padding: 0 40px;
+  // margin-top: 20px;
+  // width: 60px;
+  text-align: center;
+  // background-image: image-url('room_hidari');
+}
+
+.side-right{
   background-color: #2F3E51;
   // height: calc(100vh - 100px);
   width: calc(100vh - 60px);
   padding: 0 40px;
   // width: 60px;
   text-align: center;
+  // background-image: image-url('room_migi');
 }
 
 .books-floor{
-  background-color: rebeccapurple;
+  background-color:  #2F3E51;
   width: 1000px;
   padding: 0 60px;
   // display: flex;
+  // background-image: image-url('22226889');
 }
 
 .book-border{
   padding: 20px 30px;
   background-color: saddlebrown;
 }
+
+.home-name{
+  color: #f8f8f8;  
+}
+
+
+
 
 // 本棚の上の部分
 .books-lists-top{
@@ -124,7 +153,7 @@ header{
 .books-lists-gap{
   width: 100%;
   height: 25px;
-  background-color: honeydew;
+  background-color: cornsilk;
 }
 
 // 本棚の本を置くところ
@@ -133,7 +162,7 @@ header{
   // padding-left: 10px;
   // padding-right: 10px;
   height: 250px;
-  background-color: lightgreen;
+  background-color: cornsilk;
   display: flex;
 }
 
@@ -141,7 +170,7 @@ header{
 .books-lists-under{
   width: 100%;
   height: 30px;
-  background-color: #2F3E51;
+  background-color: saddlebrown;
 }
 
 .books{
@@ -153,6 +182,7 @@ header{
   background-color: lightcyan;
   border-style: solid;
   border-width:thick;
+  background-image: image-url('book2');
   // text-align: end;
   // align-items: flex-end;
 }
@@ -166,14 +196,28 @@ header{
   writing-mode: tb-rl;
   writing-mode: vertical-rl;
   display: inline-block;/* 文字列ぶんのブロックにする */
-  background-color: red;
+  // background-color: red;
   // text-align:center;
   align-items: center;
 }
 
+.book-title{
+  display: table-cell; /* IE8から使用可能 */
+  // vertical-align: middle;
+  // padding:0 20px 20px 0;
+  // text-orientation:sideways;
+  writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  display: inline-block;/* 文字列ぶんのブロックにする */
+  background-color: antiquewhite;
+  // text-align:center;
+  align-items: center;
+}
 
 .ad-footer-contents{
   height:100px;
   width: 100%;
-  background-color: lightgray;
+  background-color: rosybrown;
+  
+  // text-align: justify;
  }

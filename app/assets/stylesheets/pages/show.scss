@@ -7,7 +7,7 @@
 }
 
 .title-text{
-  color: deeppink;
+  color: black;
   padding-top: 5px;
   padding-bottom: 5px;
   text-align: center;
@@ -46,19 +46,38 @@
 // 中央のレビュー投稿位置内側
 .review-push-in{
   margin: 10px;
-  background-color: deepskyblue;
-  height: 200px;
+  background-color: honeydew;
+  // background-image: image-url('22243577.png');
+  // background-size:contain;                 /* 画像のサイズを指定    */
+  // width:100%;                              /* 横幅のサイズを指定    */
+  // height: 200px;
 }
 
+.review-text-in{
+  margin: 10px;
+  background-color: honeydew;  
+  // border-color: black;
+}
+
+.review-text-in-time{
+  font-size: 5px;
+}
+
+.review-text-in-delete{
+  margin: 10px;
+  // background-color: deepskyblue;
+  border-color: black;
+}
 
 .review-ii-in{
   margin: 10px;
-  background-color: deepskyblue;
+  background-color: honeydew;
+  display: flex;
 }
 
 // いいねアイコン①
 .like_button{
-  background-color: #BDBDBD;
+  background-color: honeydew;
 }
 
 // いいねアイコン②
@@ -71,14 +90,14 @@
 .image_switch_on{
   background-color: #FE2E2E;
   padding: 2px;
-  width: 15%;
-  height: 15%;
+  width: 70%;
+  height: 70%;
 }
 
 .image_switch_off{
   padding: 2px;
-  width: 15%;
-  height: 15%;
+  width: 70%;
+  height: 70%;
 }
 
 // 中央のレビュー表示
@@ -115,6 +134,9 @@
   background-color: darkseagreen;
 }
 
+// .repl-text{
+//   // text-align: end;
+// }
 // display: flex;
 // text-align:center;
 // padding:20px;

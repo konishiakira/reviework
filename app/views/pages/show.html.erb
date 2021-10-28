@@ -1,8 +1,9 @@
 <%= render "shared/header" %>
 <div class='main'>
   <div class='top'>
-    <div class='title-text'><%= "#{@page.title}　レビュページ" %></div>
-    <div class='title-text'><%= "レビュアーの：#{@page.title}のイメージ：　#{@page.title}　" %></div>
+    <div class='title-text'><%= "#{@page.title}　レビュページへようこそ" %></div>
+    <div class='title-text'><%= "レビュアーの：#{@page.title}のイメージ"%></div>
+        ここに感情アイコン画像とユーザーの選択したアイコンの統計を表示予定です。
 
     <%= @like_count = Cr.where(page_id: params[:id]).count %>
 
@@ -13,14 +14,14 @@
 
   <div class='review-center'>
     <div class='review-push'>
-      レビュー投稿（review-push）
+　
 
 
       <%# ログインしていないと表示しない %>
       <% if user_signed_in? %>
 
       <div class='review-push-in'>
-        レビュー投稿フォーム（review-push-in）
+        レビュー投稿フォーム
 
 
         <%# もし、ログインユーザーのレビュー投稿が存在しなければ表示（replの値の有無がレビューとリプライの判定） %>
@@ -31,16 +32,21 @@
               <%= f.submit '投稿', class: "submit-btn" %>
             <% end %>
         <% end %>
-      </div>
+
 
         <% @reviews.each do |b| %>
           <% if current_user.id == b.user_id && b.repl == nil %>
-            <div class='review-ii-in'>
-              <div class='review-ii-in'>
+            <div class='review-text-in'>
+              <div class='review-text-in'>
                 <%= b.user.name %>
+              </div>
+              <div class='review-text-in'>
                 <%= b.comment %>
+              </div>
+              <div class='review-text-in-time'>
                 <%= b.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-
+              </div>
+              <div class='review-text-in-delete'>
                 <%# ここにユーザーのレビュー投稿を削除する記述をする %>
                 <%= link_to '削除', page_path(@des_id.page_id), method: :delete %>
               <%# //ここにユーザーのレビュー投稿を削除する記述をする %>
@@ -97,7 +103,7 @@
         <% end %>
       <% end %>
       <%# //ログインしていないと表示しない %>
-
+      </div>
 
     </div>
     <div class='review-data'>
@@ -109,10 +115,11 @@
  
               <%# リプ用カラムに値が無ければ表示（レビューと判断する） %>
               <% if r.repl == nil %>
+              ＜レビュー＞
                 <%= r.user.name %>
                 <%= r.comment %>
                 <%= r.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-                テスト
+                
 
                 <% if user_signed_in? %>
                   <% if current_user.id != r.user_id %>
@@ -138,18 +145,22 @@
              ログインユーザーidとレビュー投稿id（@reviews[1].user_id）が等しい時、
              投稿フォームを出さない。 %>
 
+
               <%# リプ用カラムに値が有れば表示（リプライと判断する） %>
               <% @reviews.each do |b| %>
                 <% if b.repl != nil %>
-                  <p class='comment'>
+                  <p class='repl-text'>
                   <% if b.repl == r.id %>
+                      ＜返信＞
                       <%= b.user.name %>
                       <%= b.comment %>
-                      <%= b.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+                      <%# </p>
+                      <p class='review-text-in-time'> %>
+                        <%= b.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+                      
                   <% end %>
                 <% end %>
               <% end %>
-
 
             </p>
           <% end %>

@@ -1,8 +1,10 @@
 class AnimesController < ApplicationController
 
   def index
-    query = "SELECT * FROM pages"
-    @pages = Page.find_by_sql(query)
+    # query = "SELECT * FROM pages"
+    # @pages = Page.find_by_sql(query)
+    @pages = Page.find_by(user_id: current_user,category_id: 2)
+    # binding.pry
   end
 
   def new
@@ -32,8 +34,9 @@ class AnimesController < ApplicationController
   end
 
   def update
-    @page = Page.find(params[:format])
 
+    @page = Page.find(params[:format])
+    # @repl_id = r.id
     @url = params[:id]
     @review = Review.new
     @reviews = @page.reviews  # 追記

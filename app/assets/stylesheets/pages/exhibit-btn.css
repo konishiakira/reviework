@@ -1,14 +1,15 @@
 
 /* ボタン */
 .purchase-btn {
-  width: 120px;
-  background: #3ccace;
+  width: 200px;
+  /* height: 200px; */
+  /* background: #3ccace; */
   text-align: center;
   border-radius: 4%;
   bottom: 60px;
   left: 32px;
   position: fixed;
-  padding: 15px;
+  /* padding: 15px; */
 }
 
 /* ボタン */
@@ -23,4 +24,5 @@
 /* ボタン */
 .purchase-btn-icon {
   width: 60%;
+  height: 140%;
 }

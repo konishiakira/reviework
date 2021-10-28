@@ -3,14 +3,14 @@
 <%= render "shared/header" %>
 <div class='main'>
   <div class='center'>
-    <div class='side'>
-    左側
+    <div class='side-left'>
+
     </div>
 
     <div class='books-floor'>
       <ul class= 'home-name'>
         <% if user_signed_in? %>
-          <%= link_to current_user.name, root_path, class: "user-name" %>
+          <%= link_to current_user.name, root_path, class: "service-explain" %>
           さん　Revieworkにようこそ。
         <% else %>
           <p class='service-explain'>
@@ -22,8 +22,8 @@
         本サイトはアニメ、マンガ、ゲーム、映画に関するレビューサイトです。
       </p>
       
-      <div class= 'book-border'>本棚の枠
-        <div class='books-lists-gap'>本棚の隙間</div>
+      <div class= 'book-border'>　
+        <div class='books-lists-gap'></div>
 
         <%# 本棚 %>
         <% if @pages.length >= 1  %>
@@ -31,11 +31,14 @@
               <% @pages.each_with_index do |page,i| %>
                 <%# ①作品の文字数が長い場合の分岐開始位置（Trueは下の場合、それ以上長いばFalseの場合） %>
                 <div class='books'>
-                  <li class='book'>感</li>
+                  <li class='book'>
+                    <%= image_tag 'cool.png' , size: '25x25' %>
+
+                  </li>
                   <%# <li class='book'> %>
                   <%#= page.title %>
                   <%# </li> %>
-                  <li class='book'><%= link_to page.title, page_path(page.id), method: :get %></li>
+                  <li class='book-title'><%= link_to page.title, page_path(page.id), method: :get %></li>
                 </div>
                 <%# else① %>
                 <%# ①文字の大きが変わるクラス名に変えたもので上記と同じように記述 %>
@@ -44,27 +47,27 @@
                 <% if i+1 == 12 || i+1 == 24 || i+1 == 36 || i+1 == 48 %>
                 <%# 時間を見て式を修正する。 %>
             </div>
-              <div class='books-lists-under'>本置くところ</div>
-              <div class='books-lists-gap'>本棚の隙間</div>
+              <div class='books-lists-under'>　</div>
+              <div class='books-lists-gap'></div>
                   <%# if i+1 == 13 || i+1 == 25 || i+1 == 37 || i+1 == 49 %>
             <div class='books-lists'>
                   <%# end %>
                 <% end %>
               <% end %>
             </div>
-            <div class='books-lists-under'>本置くところ</div>
-            <div class='books-lists-gap'>本棚の隙間</div>
+            <div class='books-lists-under'>　</div>
+            <div class='books-lists-gap'></div>
         <% else %>
           <%# 作品ページが無かった場合 %>
         <% end %>
       </div>
     </div>
-    <div class='side'>
-    右側
+    <div class='side-right'>
+    
     </div>
     <%= link_to(new_page_path, class: 'purchase-btn') do %>
-      <span class='purchase-btn-text'>出品する</span>
-      <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+      <span class='purchase-btn-text'></span>
+      <%= image_tag '419433.png' , size: '185x50' ,class: "purchase-btn-icon" %>
     <% end %>
   </div>
 </div>
