@@ -13,6 +13,7 @@ class Page < ApplicationRecord
   has_many :healings,dependent: :destroy
   has_many :funs,dependent: :destroy
   has_many :interestings,dependent: :destroy
+  has_many :thoughtprovokings,dependent: :destroy
 
   
 end

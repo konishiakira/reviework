@@ -101,12 +101,10 @@ class PagesController < ApplicationController
     end
     @like_count = Scared.where(page_id: params[:id],user_id: current_user.id).count
 
-    # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
-    # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
     # //「怖い」表示確認
 
 
-    # 「考えさせれる」表示確認
+    # 「癒される」表示確認
     if user_signed_in?
       @like = Healing.new(page_id: params[:id],user_id: current_user.id)
       # binding.pry
@@ -119,11 +117,7 @@ class PagesController < ApplicationController
     end
     @like_count = Healing.where(page_id: params[:id],user_id: current_user.id).count
 
-    # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
-    # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
-    # //「考えさせられる」表示確認
-
-
+    # //「癒される」表示確認
 
     # 「楽しい」表示確認
     if user_signed_in?
@@ -159,7 +153,22 @@ class PagesController < ApplicationController
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
     # //「面白い」表示確認
 
-    
+    # 「考えさせられる」表示確認
+    if user_signed_in?
+      @like = Thoughtprovoking.new(page_id: params[:id],user_id: current_user.id)
+      # binding.pry
+      @thoughtprovoking_nil = Thoughtprovoking.find_by(page_id: params[:id],user_id: current_user.id)
+
+      # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
+      #受け取ったpage_id(作品のレコード番号)のレコードを格納
+      @thoughtprovoking = Page.find_by(id: @like.page_id)
+
+    end
+    @like_count = Thoughtprovoking.where(page_id: params[:id],user_id: current_user.id).count
+
+    # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
+    # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
+    # //「考えさせられる」表示確認
 
 
     @mach_id = Review.find_by(user_id: current_user,repl: nil)

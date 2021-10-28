@@ -1,0 +1,22 @@
+<%# @food.each do |b| %>
+    <%# if current_user.id == b.user_id %>
+    <% if user_signed_in? && @thoughtprovoking_nil != nil %>
+    <%# if @items.buylog != nil %> 
+    <div class="like_button_on">
+        <%= link_to image_tag("thoughtprovoking.png", class:"image_switch_on"), thoughtprovokings_delete_path(page_id: @thoughtprovoking.id), {method: "post", remote: true} %>
+
+
+        <%# カウント %>
+        <%#= @like_count  %>
+
+    </div>
+    <% else %>
+        <%# if user_signed_in? && @like == nil %>
+            <div class="like_button">
+                <%= link_to image_tag("thoughtprovoking.png", class:"image_switch_off"), thoughtprovokings_create_path(page_id: @thoughtprovoking.id), {method: "post", remote: true} %>
+                    <%# カウント %>
+                    <%#= @like_count %>
+            </div>
+        <%# end %>
+    <% end %>
+<%# end %>

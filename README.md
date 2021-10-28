@@ -299,7 +299,7 @@ GyazoGIFで撮影すること。
 - belongs_to :user
 - belongs_to :page
 
-## thought_provokings テーブル
+## thoughtprovoking テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |

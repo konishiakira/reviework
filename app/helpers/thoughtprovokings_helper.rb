@@ -1,0 +1,2 @@
+module ThoughtprovokingsHelper
+end
