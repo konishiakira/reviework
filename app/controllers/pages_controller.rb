@@ -125,6 +125,24 @@ class PagesController < ApplicationController
 
 
 
+    # 「考えさせれる」表示確認
+    if user_signed_in?
+      @like = Fun.new(page_id: params[:id],user_id: current_user.id)
+      # binding.pry
+      @fun_nil = Fun.find_by(page_id: params[:id],user_id: current_user.id)
+
+      # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
+      #受け取ったpage_id(作品のレコード番号)のレコードを格納
+      @fun = Page.find_by(id: @like.page_id)
+
+    end
+    @like_count = Fun.where(page_id: params[:id],user_id: current_user.id).count
+
+    # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
+    # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
+    # //「考えさせられる」表示確認
+
+
 
     @mach_id = Review.find_by(user_id: current_user,repl: nil)
     

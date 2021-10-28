@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   post "healings/:page_id/create", to: "healings#create", constraints: {page_id: /\d+/}, as: :healings_create
   post "healings/:page_id/delete", to: "healings#delete", constraints: {page_id: /\d+/}, as: :healings_delete
 
+  post "funs/:page_id/create", to: "funs#create", constraints: {page_id: /\d+/}, as: :funs_create
+  post "funs/:page_id/delete", to: "funs#delete", constraints: {page_id: /\d+/}, as: :funs_delete
+
   
   # do
   #   resources :comments, only: :create
