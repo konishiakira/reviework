@@ -42,7 +42,7 @@
                 <%= b.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
 
                 <%# ここにユーザーのレビュー投稿を削除する記述をする %>
-                <%= link_to '削除', "/page/#{@page.id}", method: :delete %>
+                <%= link_to '削除', page_path(@des_id.page_id), method: :delete %>
               <%# //ここにユーザーのレビュー投稿を削除する記述をする %>
               </div>
 

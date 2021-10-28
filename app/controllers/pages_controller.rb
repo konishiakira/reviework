@@ -55,6 +55,8 @@ class PagesController < ApplicationController
 
     @mach_repl = Review.find_by(repl: params[:id])
 
+    @des_id = Review.find_by(user_id: current_user,repl: nil)
+
   end
 
   def update
@@ -67,7 +69,17 @@ class PagesController < ApplicationController
 
   end
 
+  def destroy
+    # binding.pry
+    @des_id = Review.find_by(page_id: params[:id],user_id: current_user,repl: nil)
+    binding.pry
+    @des_id.destroy
 
+    # @des_id_link = Review.find(page_id: params[:id],user_id: current_user,repl: nil)
+    Review.where(repl: @des_id.id).destroy_all
+
+    redirect_to root_path
+  end
 
   private
 
