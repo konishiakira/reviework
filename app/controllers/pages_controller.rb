@@ -72,13 +72,14 @@ class PagesController < ApplicationController
   def destroy
     # binding.pry
     @des_id = Review.find_by(page_id: params[:id],user_id: current_user,repl: nil)
-    binding.pry
+    # binding.pry
     @des_id.destroy
 
     # @des_id_link = Review.find(page_id: params[:id],user_id: current_user,repl: nil)
     Review.where(repl: @des_id.id).destroy_all
 
-    redirect_to root_path
+    # @page = Page.find(params[:id])
+    redirect_to page_path(params[:id])   # 追記する
   end
 
   private

@@ -63,9 +63,23 @@
 
 // いいねアイコン②
 .like_button_on{
-  background-color: #FE2E2E;
+  // background-color: #FE2E2E;
+  border-color: #FE2E2E;
 }
 
+
+.image_switch_on{
+  background-color: #FE2E2E;
+  padding: 2px;
+  width: 15%;
+  height: 15%;
+}
+
+.image_switch_off{
+  padding: 2px;
+  width: 15%;
+  height: 15%;
+}
 
 // 中央のレビュー表示
 .review-data{

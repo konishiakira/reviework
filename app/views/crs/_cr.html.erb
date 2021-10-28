@@ -3,7 +3,9 @@
     <% if user_signed_in? && @like_nil != nil %>
     <%# if @items.buylog != nil %> 
     <div class="like_button_on">
-        <%= link_to "いいね済み", crs_delete_path(page_id: @food.id), {method: "post", remote: true} %>
+        <%= link_to image_tag("cry.png", class:"image_switch_on"), crs_delete_path(page_id: @food.id), {method: "post", remote: true} %>
+        <%#= link_to image_tag("cry.png", class:"image_switch"), "/" %>
+        <%#= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
 
         <%# カウント %>
         <%#= @like_count  %>
@@ -12,7 +14,7 @@
     <% else %>
         <%# if user_signed_in? && @like == nil %>
             <div class="like_button">
-                <%= link_to "いいね", crs_create_path(page_id: @food.id), {method: "post", remote: true} %>
+                <%= link_to image_tag("cry.png", class:"image_switch_off"), crs_create_path(page_id: @food.id), {method: "post", remote: true} %>
                     <%# カウント %>
                     <%#= @like_count %>
             </div>
