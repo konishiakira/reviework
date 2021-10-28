@@ -1,8 +1,18 @@
-<div class="like_button_on">
-    <%= link_to "いいね済み", crs_delete_path(page_id: @food.id), {method: "post", remote: true} %>
-    <%= @like_count %>
-</div>
-<div class="like_button">
-    <%= link_to "いいね", crs_create_path(page_id: @food.id), {method: "post", remote: true} %>
-    <%= @like_count %>
-</div>
+<%# @food.each do |b| %>
+    <%# if current_user.id == b.user_id %>
+    <% if user_signed_in? && @mach_id != nil %>
+    <%# if @items.buylog != nil %> 
+    <div class="like_button_on">
+        <%= link_to "いいね済み", crs_delete_path(page_id: @food.id), {method: "post", remote: true} %>
+        <%= @like_count -1 %>
+
+    </div>
+    <% else %>
+        <% if user_signed_in? && @mach_id == nil %>
+            <div class="like_button">
+                <%= link_to "いいね", crs_create_path(page_id: @food.id), {method: "post", remote: true} %>
+                <%= @like_count -1 %>
+            </div>
+        <% end %>
+    <% end %>
+<%# end %>

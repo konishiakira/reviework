@@ -14,22 +14,14 @@
   <div class='review-center'>
     <div class='review-push'>
       レビュー投稿（review-push）
-
-
-      <%# ログインしていないと表示しない %>
-      <% if user_signed_in? %>
-
       <div class='review-push-in'>
         レビュー投稿フォーム（review-push-in）
 
 
-        <%# もし、ログインユーザーのレビュー投稿が存在しなければ表示（replの値の有無がレビューとリプライの判定） %>
-        <% if @mach_id == nil %>
-            <%= form_for @review do |f| %>
-              <%= f.hidden_field :page_id, value: @page.id %>
-              <%= f.text_field :comment, class: "text-field" %>
-              <%= f.submit '投稿', class: "submit-btn" %>
-            <% end %>
+        <%= form_for @review do |f| %>
+          <%= f.hidden_field :page_id, value: @page.id %>
+          <%= f.text_field :comment, class: "text-field" %>
+          <%= f.submit '投稿', class: "submit-btn" %>
         <% end %>
       </div>
 
@@ -42,10 +34,6 @@
                 <%= b.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
               </div>
 
-
-              <%# ここにユーザーのレビュー投稿を削除する記述をする %>
-              <%# //ここにユーザーのレビュー投稿を削除する記述をする %>
-
               <div class='review-ii-in'>
                 <%# 感情アイコンの選択 %>
                 <div class="buttons_<%= @food.id %>"><%= render partial: 'crs/cr' %></div>
@@ -55,9 +43,6 @@
             </div>
           <% end %>
         <% end %>
-      <% end %>
-      <%# //ログインしていないと表示しない %>
-
 
     </div>
     <div class='review-data'>
@@ -74,10 +59,8 @@
                 <%= r.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
                 テスト
 
-                <% if user_signed_in? %>
-                  <% if current_user.id != r.user_id %>
-                    <%= link_to "返信", page_path(r.page.id, id: r.id), method: :put %>
-                  <% end %>
+                <% if current_user.id != r.user_id %>
+                  <%= link_to "返信", page_path(r.page.id, id: r.id), method: :put %>
                 <% end %>
             <%#= form_for @repl do |f| %>
               <%#= f.hidden_field :id, value: @repls.id %>
