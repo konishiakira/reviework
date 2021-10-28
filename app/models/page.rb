@@ -12,8 +12,9 @@ class Page < ApplicationRecord
   has_many :scareds,dependent: :destroy
   has_many :healings,dependent: :destroy
   has_many :funs,dependent: :destroy
+  has_many :interestings,dependent: :destroy
 
-
+  
 end
 # ### Association
 # - belongs_to :user
