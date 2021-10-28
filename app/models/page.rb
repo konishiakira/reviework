@@ -10,6 +10,7 @@ class Page < ApplicationRecord
   has_many :cools,dependent: :destroy
   has_many :cutes,dependent: :destroy
   has_many :scareds,dependent: :destroy
+  has_many :healings,dependent: :destroy
 
 end
 # ### Association
