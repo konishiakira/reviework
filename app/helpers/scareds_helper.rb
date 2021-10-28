@@ -1,0 +1,2 @@
+module ScaredsHelper
+end

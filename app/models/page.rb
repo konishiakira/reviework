@@ -9,6 +9,7 @@ class Page < ApplicationRecord
   has_many :crs,dependent: :destroy
   has_many :cools,dependent: :destroy
   has_many :cutes,dependent: :destroy
+  has_many :scareds,dependent: :destroy
 
 end
 # ### Association

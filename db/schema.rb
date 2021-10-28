@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_120329) do
+ActiveRecord::Schema.define(version: 2021_10_28_122249) do
 
   create_table "cools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "page_id", null: false
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2021_10_28_120329) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "scareds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "page_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["page_id"], name: "index_scareds_on_page_id"
+    t.index ["user_id"], name: "index_scareds_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,4 +91,6 @@ ActiveRecord::Schema.define(version: 2021_10_28_120329) do
   add_foreign_key "pages", "users"
   add_foreign_key "reviews", "pages"
   add_foreign_key "reviews", "users"
+  add_foreign_key "scareds", "pages"
+  add_foreign_key "scareds", "users"
 end

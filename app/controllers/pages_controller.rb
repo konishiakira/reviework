@@ -88,6 +88,25 @@ class PagesController < ApplicationController
     # //「可愛い」表示確認
 
 
+    # 「怖い」表示確認
+    if user_signed_in?
+      @like = Scared.new(page_id: params[:id],user_id: current_user.id)
+      # binding.pry
+      @scared_nil = Scared.find_by(page_id: params[:id],user_id: current_user.id)
+
+      # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
+      #受け取ったpage_id(作品のレコード番号)のレコードを格納
+      @scared = Page.find_by(id: @like.page_id)
+
+    end
+    @like_count = Scared.where(page_id: params[:id],user_id: current_user.id).count
+
+    # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
+    # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
+    # //「怖い」表示確認
+
+
+
     @mach_id = Review.find_by(user_id: current_user,repl: nil)
     
     # binding.pry
