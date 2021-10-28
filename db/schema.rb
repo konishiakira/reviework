@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_053645) do
+ActiveRecord::Schema.define(version: 2021_10_28_105529) do
+
+  create_table "cools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "page_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["page_id"], name: "index_cools_on_page_id"
+    t.index ["user_id"], name: "index_cools_on_user_id"
+  end
 
   create_table "crs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "page_id", null: false
@@ -55,6 +64,8 @@ ActiveRecord::Schema.define(version: 2021_10_27_053645) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cools", "pages"
+  add_foreign_key "cools", "users"
   add_foreign_key "crs", "pages"
   add_foreign_key "crs", "users"
   add_foreign_key "pages", "users"

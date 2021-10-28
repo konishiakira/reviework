@@ -27,3 +27,4 @@ end
 
 # また、カウントの数字を表示するための一文をボタンを設置するビューのファイルにも書いておきます。
 # @like_count = Like.where(food_id: params[:food_id]).count
+

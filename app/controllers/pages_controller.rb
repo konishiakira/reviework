@@ -32,11 +32,13 @@ class PagesController < ApplicationController
     @repl = Review.new(page_id: params[:page_id], user_id: params[:user_id])
     # @like_count = Like.where(food_id: params[:food_id]).count
 
-    # いいね表示確認
+
+
+    # 「泣」表示確認
     if user_signed_in?
       @like = Cr.new(page_id: params[:id],user_id: current_user.id)
       # binding.pry
-      @like_nil = Cr.find_by(page_id: params[:id],user_id: current_user.id)
+      @cr_nil = Cr.find_by(page_id: params[:id],user_id: current_user.id)
 
       # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
@@ -47,7 +49,27 @@ class PagesController < ApplicationController
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
-    
+    # //「泣」表示確認
+
+
+    # 「かっこいい」表示確認
+    if user_signed_in?
+      @like = Cool.new(page_id: params[:id],user_id: current_user.id)
+      # binding.pry
+      @cool_nil = Cool.find_by(page_id: params[:id],user_id: current_user.id)
+
+      # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
+      #受け取ったpage_id(作品のレコード番号)のレコードを格納
+      @cool = Page.find_by(id: @like.page_id)
+
+    end
+    @like_count = Cool.where(page_id: params[:id],user_id: current_user.id).count
+
+    # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
+    # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
+    # //「かっこいい」表示確認
+
+
     @mach_id = Review.find_by(user_id: current_user,repl: nil)
     
     # binding.pry
