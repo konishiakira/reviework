@@ -1,6 +1,6 @@
 <%# @food.each do |b| %>
     <%# if current_user.id == b.user_id %>
-    <% if user_signed_in? && @mach_id != nil %>
+    <% if user_signed_in? && @like_nil != nil %>
     <%# if @items.buylog != nil %> 
     <div class="like_button_on">
         <%= link_to "いいね済み", crs_delete_path(page_id: @food.id), {method: "post", remote: true} %>
@@ -8,11 +8,11 @@
 
     </div>
     <% else %>
-        <% if user_signed_in? && @mach_id == nil %>
+        <%# if user_signed_in? && @like == nil %>
             <div class="like_button">
                 <%= link_to "いいね", crs_create_path(page_id: @food.id), {method: "post", remote: true} %>
                 <%= @like_count -1 %>
             </div>
-        <% end %>
+        <%# end %>
     <% end %>
 <%# end %>

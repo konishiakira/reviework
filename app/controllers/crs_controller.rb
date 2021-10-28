@@ -13,8 +13,9 @@ class CrsController < ApplicationController
   end
   
   def delete
-    # binding.pry
+        # binding.pry
     @like = Cr.find_by(page_id: params[:page_id],user_id: current_user.id)
+    # binding.pry
     @food = Page.find_by(id: @like.page_id)
     @like.destroy
     @like_count = Cr.where(page_id: params[:page_id]).count

@@ -35,15 +35,25 @@ class PagesController < ApplicationController
     # いいね表示確認
     if user_signed_in?
       @like = Cr.new(page_id: params[:id],user_id: current_user.id)
+      # binding.pry
+      @like_nil = Cr.find_by(page_id: params[:id],user_id: current_user.id)
+
+      # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
+      #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @food = Page.find_by(id: @like.page_id)
+
     end
-    @like_count = Cr.where(page_id: params[:id]).count
+    @like_count = Cr.where(page_id: params[:id],user_id: current_user.id).count
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
+    # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
+    
     @mach_id = Review.find_by(user_id: current_user,repl: nil)
     
     # binding.pry
     #いいね分岐のための変数用意が必要
+
+    @mach_repl = Review.find_by(repl: params[:id])
 
   end
 
