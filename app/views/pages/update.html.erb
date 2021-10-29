@@ -10,16 +10,16 @@
 
   <div class='review-center'>
     <div class='review-push'>
-      レビュー投稿（review-push）
+      レビュー投稿への返信
       <div class='review-push-in'>
-        レビュー投稿フォーム（review-push-in）
+        返信フォーム
 
 
-        <%= form_for @review do |f| %>
-          <%= f.hidden_field :page_id, value: @page.id %>
-          <%= f.text_field :comment, class: "text-field" %>
-          <%= f.submit '投稿', class: "submit-btn" %>
-        <% end %>
+        <%#= form_for @review do |f| %>
+          <%#= f.hidden_field :page_id, value: @page.id %>
+          <%#= f.text_field :comment, class: "text-field" %>
+          <%#= f.submit '投稿', class: "submit-btn" %>
+        <%# end %>
 
 
         <%= form_for @review_repl do |f| %>
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class='review-data'>
-      本作品のレビュー内容（review-data）
+      本作品のレビュー内容
       <div class='review-data-in'>
         <%# <div class='review-data-user'> %>
           <% @reviews.each_with_index do |r,i| %>
@@ -42,10 +42,11 @@
  
               <%# リプ用カラムに値が無ければ表示（レビューと判断する） %>
               <% if r.repl == nil %>
+                ＜レビュー＞
                 <%= r.user.name %>
                 <%= r.comment %>
                 <%= r.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-                テスト
+                
               <%= link_to "返信", page_path(r.page.id), method: :put %>
 
             <%#= form_for @repl do |f| %>
@@ -72,6 +73,7 @@
                 <% if b.repl != nil %>
                   <p class='comment'>
                   <% if b.repl == r.id %>
+                      ＜返信＞
                       <%= b.user.name %>
                       <%= b.comment %>
                       <%= b.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>

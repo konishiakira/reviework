@@ -171,7 +171,7 @@ class PagesController < ApplicationController
     # //「考えさせられる」表示確認
 
 
-    @mach_id = Review.find_by(user_id: current_user,repl: nil)
+    @mach_id = Review.find_by(page_id: params[:id],user_id: current_user,repl: nil)
     
     # binding.pry
     #いいね分岐のための変数用意が必要

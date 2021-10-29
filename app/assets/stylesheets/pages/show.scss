@@ -35,12 +35,13 @@
 
 // 中央のレビュー投稿位置
 .review-push{
-  background-color: #2F3E51;
+  background-color: black;
   // height: calc(100vh - 100px);
   width: calc(100vh - 60px);
   padding: 0 40px;
   // width: 60px;
   text-align: center;
+  // background-image: image-url('5097885_s');
 }
 
 // 中央のレビュー投稿位置内側
@@ -102,17 +103,19 @@
 
 // 中央のレビュー表示
 .review-data{
-  background-color: rebeccapurple;
+  // background-color: rebeccapurple;
   width: 1000px;
   padding: 0 60px;
   // display: flex;
+  background-image: image-url('5097885_s');
+
 }
 
 // 中央のレビュー表示内側
 .review-data-in{
   height: 500px;
   margin: 10px;
-  background-color: lightsalmon;
+  background-color: honeydew;
   position: relative;
   // display: flex;
   // align-items: top;
@@ -129,10 +132,25 @@
 }
 
 .comment{
-
+  // border-color: cornflowerblue;
   // padding: 10px;
-  background-color: darkseagreen;
+  background-color: honeydew;
 }
+
+.waku{
+  // border-color: black;
+  border-top-color:black;
+  border-top-style: solid;
+  border-width: 5px;
+  // width: 150px;
+  // height: 30px;
+  // padding: 10px;
+  // border-top-color:black;
+  // border-bottom-color:black;
+  // border-top: darkgoldenrod;
+  // border-bottom: darkgoldenrod;
+}
+
 
 // .repl-text{
 //   // text-align: end;
