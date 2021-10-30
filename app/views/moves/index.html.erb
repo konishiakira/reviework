@@ -3,14 +3,14 @@
 <%= render "shared/header" %>
 <div class='main'>
   <div class='center'>
-    <div class='side'>
+    <div class='side-left'>
     
     </div>
 
     <div class='books-floor'>
       <ul class= 'home-name'>
         <% if user_signed_in? %>
-          <%= link_to current_user.name, root_path, class: "user-name" %>
+          <%= link_to current_user.name, root_path, class: "service-explain" %>
           さん　Revieworkにようこそ。
         <% else %>
           <p class='service-explain'>
@@ -62,7 +62,7 @@
         <% end %>
       </div>
     </div>
-    <div class='side'>
+<div class='side-right'>
     
     </div>
     <%= link_to(new_page_path, class: 'purchase-btn') do %>

@@ -44,8 +44,9 @@ class PagesController < ApplicationController
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @food = Page.find_by(id: @like.page_id)
 
+      @like_count = Cr.where(page_id: params[:id],user_id: current_user.id).count
     end
-    @like_count = Cr.where(page_id: params[:id],user_id: current_user.id).count
+
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
@@ -62,8 +63,9 @@ class PagesController < ApplicationController
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @cool = Page.find_by(id: @like.page_id)
 
+      @like_count = Cool.where(page_id: params[:id],user_id: current_user.id).count
     end
-    @like_count = Cool.where(page_id: params[:id],user_id: current_user.id).count
+
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
@@ -79,9 +81,9 @@ class PagesController < ApplicationController
       # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @cute = Page.find_by(id: @like.page_id)
-
+      @like_count = Cute.where(page_id: params[:id],user_id: current_user.id).count
     end
-    @like_count = Cute.where(page_id: params[:id],user_id: current_user.id).count
+
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
@@ -97,9 +99,9 @@ class PagesController < ApplicationController
       # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @scared = Page.find_by(id: @like.page_id)
-
+      @like_count = Scared.where(page_id: params[:id],user_id: current_user.id).count
     end
-    @like_count = Scared.where(page_id: params[:id],user_id: current_user.id).count
+
 
     # //「怖い」表示確認
 
@@ -113,9 +115,9 @@ class PagesController < ApplicationController
       # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @healing = Page.find_by(id: @like.page_id)
-
+      @like_count = Healing.where(page_id: params[:id],user_id: current_user.id).count
     end
-    @like_count = Healing.where(page_id: params[:id],user_id: current_user.id).count
+
 
     # //「癒される」表示確認
 
@@ -128,9 +130,9 @@ class PagesController < ApplicationController
       # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @fun = Page.find_by(id: @like.page_id)
+      @like_count = Fun.where(page_id: params[:id],user_id: current_user.id).count
 
     end
-    @like_count = Fun.where(page_id: params[:id],user_id: current_user.id).count
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
@@ -145,9 +147,9 @@ class PagesController < ApplicationController
       # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @interesting = Page.find_by(id: @like.page_id)
+      @like_count = Interesting.where(page_id: params[:id],user_id: current_user.id).count
 
     end
-    @like_count = Interesting.where(page_id: params[:id],user_id: current_user.id).count
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)
@@ -162,9 +164,9 @@ class PagesController < ApplicationController
       # レビュー投稿したテーブルのうち、今回いいねボタンを押下した際に作品対象ページの
       #受け取ったpage_id(作品のレコード番号)のレコードを格納
       @thoughtprovoking = Page.find_by(id: @like.page_id)
+      @like_count = Thoughtprovoking.where(page_id: params[:id],user_id: current_user.id).count
 
     end
-    @like_count = Thoughtprovoking.where(page_id: params[:id],user_id: current_user.id).count
 
     # crテーブルにログインユーザーのアカウントと紐づくuser_idカラムが存在するか検索
     # @mach_cr = Cr.find_by(user_id: current_user,repl: nil)

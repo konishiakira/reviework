@@ -2,23 +2,29 @@
 <div class='main'>
   <div class='top'>
     <div class='title-text'><%= "#{@page.title}　レビュページへようこそ" %></div>
-    <div class='title-text'><%= "レビュアーの：#{@page.title}のイメージ"%></div>
-        ここに感情アイコン画像とユーザーの選択したアイコンの統計を表示予定です。
-
-    <%= @like_count = Cr.where(page_id: params[:id]).count %>
-
+    <div class='title-text'>
+      <%= "レビュアーの：#{@page.title}のイメージ"%>
+     </div>
+     <div class='title-text'>
+      <%= image_tag 'cool.png' , size: '110x100' %>
+    </div>
+         <div class='title-text'>
+        ↑ここに感情アイコン画像とユーザーの選択したアイコンの統計を表示予定です。
+          </div>
+      <% if user_signed_in? %>
+        アイコンクリックカウント
+        <%= @like_count = Cr.where(page_id: params[:id]).count %>
+      <% end %>
   </div>
 
 
 
 
-  <div class='review-center'>
-    <div class='review-push'>
-　
-
 
       <%# ログインしていないと表示しない %>
       <% if user_signed_in? %>
+  <div class='review-center'>
+    <div class='review-push'>
 
       <div class='review-push-in'>
         レビュー投稿フォーム
@@ -101,6 +107,24 @@
             </div>
           <% end %>
         <% end %>
+      <% else %>
+
+
+      <div class='review-push-in-no'>
+        <a class="in-no" >ログインしてレビューを投稿しよう！</a>
+
+
+        <%# もし、ログインユーザーのレビュー投稿が存在しなければ表示（replの値の有無がレビューとリプライの判定） %>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
       <% end %>
       <%# //ログインしていないと表示しない %>
       </div>
@@ -116,21 +140,21 @@
               <%# リプ用カラムに値が無ければ表示（レビューと判断する） %>
               <% if r.repl == nil %>
               ＜レビュー＞
-                <%= r.user.name %>
+                <%= "#{r.user.name}：" %>
                 <%= r.comment %>
                 <%= r.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
                 
-
-                <% if user_signed_in? %>
-                  <% if current_user.id != r.user_id %>
-                    <%= link_to "返信", page_path(r.page.id, id: r.id), method: :put %>
-                  <% end %>
+              <% if user_signed_in? %>
+                <% if current_user.id != r.user_id %>
+                  <%= link_to "返信", page_path(r.page.id, id: r.id), method: :put %>
                 <% end %>
+              <% end %>
             <%#= form_for @repl do |f| %>
               <%#= f.hidden_field :id, value: @repls.id %>
               <%#= f.hidden_field :page_id, value: @page.id %>
               <%#= f.submit '返信', class: "submit-btn" %>
             <%# end %>
+
 
 
               <%# users_path(group_id: 1, team_id: 2) %>
@@ -152,17 +176,17 @@
                   <p class='repl-text'>
                   <% if b.repl == r.id %>
                       ＜返信＞
-                      <%= b.user.name %>
+                      <%= "#{b.user.name}：" %>
                       <%= b.comment %>
                       <%# </p>
                       <p class='review-text-in-time'> %>
                         <%= b.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-                      <p class="waku"></p>
                   <% end %>
                 <% end %>
               <% end %>
-
             </p>
+            <p class="waku"></p>
+
           <% end %>
 
       </div>

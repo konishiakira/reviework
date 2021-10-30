@@ -25,6 +25,7 @@
   // width: 8em;
   height: 600px;
   display: flex;
+  background-image: image-url('5097885_s');
 }
 // .review-center{
 //   display: flex;
@@ -46,12 +47,22 @@
 
 // 中央のレビュー投稿位置内側
 .review-push-in{
-  margin: 10px;
+  margin-top: 40px;
   background-color: honeydew;
   // background-image: image-url('22243577.png');
   // background-size:contain;                 /* 画像のサイズを指定    */
   // width:100%;                              /* 横幅のサイズを指定    */
   // height: 200px;
+}
+
+.review-push-in-no{
+  margin-top: 40px;
+  // background-color: honeydew;
+  background-color: black
+}
+
+.in-no{
+  color: honeydew;
 }
 
 .review-text-in{
@@ -135,6 +146,7 @@
   // border-color: cornflowerblue;
   // padding: 10px;
   background-color: honeydew;
+  // margin: 0%;
 }
 
 .waku{
@@ -152,9 +164,9 @@
 }
 
 
-// .repl-text{
-//   // text-align: end;
-// }
+.repl-text{
+  margin: 0%;
+}
 // display: flex;
 // text-align:center;
 // padding:20px;
