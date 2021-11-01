@@ -6,9 +6,9 @@
 ・レビューページ作成  
 ・レビュー投稿  
 ・レビュー投稿に対する返信（リプライ）  
-・DMによる他ユーザーとのコミュニケーション  
-・他ユーザーのブロック（非表示）  
-・他ユーザーの通報（管理者へのアカウントBAN依頼）  
+・DMによる他ユーザーとのコミュニケーション　※未実装のため実装中  
+・他ユーザーのブロック（非表示）　※未実装のため実装中  
+・他ユーザーの通報（管理者へのアカウントBAN依頼）　※未実装のため実装中  
 　
 ●URL	https://reviework-36908.herokuapp.com/  
 
@@ -30,10 +30,11 @@ ai:admin、pass:2222
 ・レビューページにおける荒らし行為を行うユーザいた場合、アカウント停止の処置を取らせていただく場合がございます。  
 ・誹謗中傷などを行うユーザがいた場合、ブロック機能をご利用ください。  
 　
-●目指した課題解決	このアプリケーションを通じて、どのような人の、どのような課題を解決しようとしているのかを記述。  
-・「今から何かの作品に触れようと考えている方が、作品のHPだけでは得られない「視聴者の感想」を、ネタバレ防止しつつを得る」課題の解決。また、「作品に触れた同年代のユーザー達がお互いの感想をアウトプットし、共感しあったり、他の考え方に気付いたりできる」課題の解決を目的としている。  
+●目指した課題解決	  
+・「今から何かの作品に触れようと考えている方が、作品のHPだけでは得られない「視聴者の感想」を、ネタバレ防止しつつを得る」課題の解決。  
+・また、「作品に触れた同年代のユーザー達がお互いの感想をアウトプットし、共感しあったり、他の考え方に気付いたりできる」課題の解決。  
 　
-●要件
+●要件  
 
 ①ユーザー管理機能  
 （目的）  
@@ -75,7 +76,8 @@ ai:admin、pass:2222
   レビュー投稿する際に、用意されたアイコンを設定する（必須）  
   各レビューページのヘッダーに、レビュアー投稿したレビューにより集計した評価アイコンの数をパラメータ表示で上に出す。  
 （ストーリー(ユースケース)）  
-  トップ＞レビューページにて、自身が投稿したレビューにある「レビューを投稿ボタン」を押下し、投稿内容を入力する際に、用意された感情アイコンを設定する  
+  トップ＞レビューページにて、投稿フォームからレビュー内容を記述し、投稿ボタンを押下し、投稿。その後投稿したレビューが左側とレビュー表示フォームに表示される。  
+  左側に表示されたレビューから感情アイコンを設定することで、ユーザーが作品に対して感じている気持ちを表現することができる。  
 
 ⑥年齢別レビューページ作成機能  ※未実装のため、実装中　
 （目的）  
@@ -85,7 +87,7 @@ ai:admin、pass:2222
 （ストーリー(ユースケース)）  
   トップページにある「新規レビューページ作成ボタン」を押下し、作成  
 
-⑦リプライ機能  
+⑦リプライ機能  ※未実装のため、実装中　
 （目的）  
   投稿されたレビューに対して、リプライができるようにするため  
 （詳細）  
@@ -110,7 +112,7 @@ ai:admin、pass:2222
 （ストーリー(ユースケース)）  
   トップ＞レビューページにて、他ユーザーを押下し、他ユーザーのマイページに遷移した際に、「ブロックするボタン」を押下することで、本サイト上に設定したユーザーの投稿は非表示になる  
 
-⑩通報機能  
+⑩通報機能  ※未実装のため、実装中　
 （目的）  
   荒らし行為などを行うユーザのアカウントをBANし、対象ユーザーが本サイトを利用できなくするため  
 （詳細）  
@@ -119,13 +121,23 @@ ai:admin、pass:2222
   トップ＞レビューページにて、他ユーザーが、レビューのリプライにおいて、誹謗中傷などを行っている場合、そのユーザーのマイページに遷移し、「通報するボタン」を押下後、通報内容送信ページにて、内容を入力して送信することで、管理者側の判断の基、アカウントBANすることができる。  
 
 
-●実装した機能についての画像やGIFおよびその説明	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記述。画像はGyazoで、GIFは
-GyazoGIFで撮影すること。  
-実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記述。
+●データベース設計  	
+![](er_reviework.png)
+  
+【開発環境】  
+・サーバーサイド：Ruby  
+・フロントエンド：HTML、CSS  
+・フレームワーク：Ruby on Rails  
+・データベース：sequel pro  
+・アプリ言語：Ruby  
+・開発環境：Ruby / Ruby on Rails / MySQL / GitHub / Heroku / Visual Studio Code  
+・外部サービス：GitHub  
+・構成管理：Git  
 
-●データベース設計	ER図等を添付。
-
-●ローカルでの動作方法	git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述。この時、アプリケーション開発に使用した環境を併記することを忘れないこと（パッケージやRubyのバージョンなど）
+①クローンするディレクトリに移動  
+cd 任意のディレクトリを指定  
+②本アプリのリモートリポジトリのダウンロード
+git clone https://github.com/konishiakira/reviework.git  
 
 
 # テーブル設計
@@ -142,7 +154,6 @@ GyazoGIFで撮影すること。
 ### Association
 - has_many :pages
 - has_many :reviews
-- has_many :repls
 - has_many :dm_users
 - has_many :dms, through: :dm_users
 - has_many :bans
@@ -154,7 +165,7 @@ GyazoGIFで撮影すること。
 - has_many :healings
 - has_many :funs
 - has_many :interestings
-- has_many :thought_provokings
+- has_many :thoughtprovokings
 
 ## pages テーブル
 
@@ -167,7 +178,14 @@ GyazoGIFで撮影すること。
 ### Association
 - belongs_to :user
 - has_many :reviews
-
+- has_many :crs
+- has_many :cools
+- has_many :cutes
+- has_many :scareds
+- has_many :healings
+- has_many :funs
+- has_many :interestings
+- has_many :thoughtprovokings
 
 ## reviews テーブル
 
@@ -181,16 +199,6 @@ GyazoGIFで撮影すること。
 ### Association
 - belongs_to :page
 - belongs_to :user
-- has_many :repls
-- has_many :crs
-- has_many :cools
-- has_many :cutes
-- has_many :scareds
-- has_many :healings
-- has_many :funs
-- has_many :interestings
-- has_many :thought_provokings
-
 
 ## review_user テーブル
 
@@ -199,19 +207,6 @@ GyazoGIFで撮影すること。
 | review  | references | null: false, foreign_key: true |
 | user    | references | null: false, foreign_key: true |
 
-
-### Association
-- belongs_to :user
-- belongs_to :review
-
-
-## repls テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| review  | references | null: false, foreign_key: true |
-| repl    | text       |                                |
 
 ### Association
 - belongs_to :user
