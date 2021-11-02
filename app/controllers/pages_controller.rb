@@ -26,9 +26,16 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
 
+    # 仮置き
+    # @reviews_count = Page.where(id: params[:id],repl: :nil)
+
     @review = Review.new 
     @reviews = @page.reviews  # 追記
   
+    # 試し
+    # @reviews = @page.reviews.where.not(repl: nil)
+    # User.where.not(name: nil)
+
     @repl = Review.new(page_id: params[:page_id], user_id: params[:user_id])
     # @like_count = Like.where(food_id: params[:food_id]).count
 

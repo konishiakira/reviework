@@ -185,7 +185,12 @@
                 <% end %>
               <% end %>
             </p>
-            <p class="waku"></p>
+
+            <%# レビュー毎の線 %>
+            <% if r.repl == nil %>
+              <p class="waku"></p>
+            <% end %>
+            <%#// レビュー毎の線 %>
 
           <% end %>
 
