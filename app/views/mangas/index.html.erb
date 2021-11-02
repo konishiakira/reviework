@@ -26,9 +26,9 @@
         <div class='books-lists-gap'>　</div>
 
         <%# 本棚 %>
-        <% if @pages.length >= 1  %>
+        <% if @pages_manga.length >= 1  %>
             <div class='books-lists'>
-              <% @pages.each_with_index do |page,i| %>
+              <% @pages_manga.each_with_index do |page,i| %>
                 <%# ①作品の文字数が長い場合の分岐開始位置（Trueは下の場合、それ以上長いばFalseの場合） %>
 
                 <% if page.category_id == 3 %>

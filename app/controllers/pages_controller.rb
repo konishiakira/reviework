@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def index
     query = "SELECT * FROM pages"
     @pages = Page.find_by_sql(query)
-    @up = 0
+
   end
 
   def new

@@ -2,6 +2,9 @@ class MangasController < ApplicationController
   def index
     query = "SELECT * FROM pages"
     @pages = Page.find_by_sql(query)
+
+    # ジャンル用変数
+    @pages_manga = Page.where(category_id: 3)
   end
 
   def new
