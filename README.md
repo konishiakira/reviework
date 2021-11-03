@@ -332,6 +332,7 @@ git clone https://github.com/konishiakira/reviework.git
 
 ### Association
 - has_many :dm_users
+- has_many :users, through: :dm_users
 
 ## bans テーブル
 
