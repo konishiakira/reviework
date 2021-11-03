@@ -155,8 +155,11 @@ git clone https://github.com/konishiakira/reviework.git
 ### Association
 - has_many :pages
 - has_many :reviews
-- has_many :dm_users
-- has_many :dms, through: :dm_users
+
+- has_many :room_users
+- has_many :dms
+- has_many :rooms, through: :room_users
+
 - has_many :bans
 - has_many :blocks
 - has_many :crs
@@ -310,29 +313,46 @@ git clone https://github.com/konishiakira/reviework.git
 - belongs_to :user
 - belongs_to :page
 
-## dm_users テーブル
+## room_users テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| dm     | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
-- belongs_to :dm
+- belongs_to :room
 
 ## dms テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | user        | references | null: false, foreign_key: true |
-| dm_message  | string     | null: false                    |
+| room        | references | null: false, foreign_key: true |
+| content     | string     | null: false                    |
 
 
 ### Association
-- has_many :dm_users
-- has_many :users, through: :dm_users
+- belongs_to :user
+- belongs_to :room
+  <!-- ブロードキャスト -->
+- after_create_commit { DirectMessageBroadcastJob.perform_later self }
+
+
+## rooms テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+
+### Association
+- has_many :room_users, dependent: :destroy
+- has_many :dms, dependent: :destroy
+- has_many :users, through: :room_users
+
 
 ## bans テーブル
 
