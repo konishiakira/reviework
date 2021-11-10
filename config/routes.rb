@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   post "thoughtprovokings/:page_id/delete", to: "thoughtprovokings#delete", constraints: {page_id: /\d+/}, as: :thoughtprovokings_delete
 
   
-  
   # do
   #   resources :comments, only: :create
   #   collection do

@@ -140,6 +140,8 @@
               <%# リプ用カラムに値が無ければ表示（レビューと判断する） %>
               <% if r.repl == nil %>
               ＜レビュー＞
+                <%#= link_to "#{r.user.name}：", "/users/#{r.user_id}" %>
+                <%#= link_to comment.user.nickname, "/users/#{comment.user_id}" %>
                 <%= "#{r.user.name}：" %>
                 <%= r.comment %>
                 <%= r.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>

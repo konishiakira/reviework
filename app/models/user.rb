@@ -13,8 +13,8 @@ class User < ApplicationRecord
 
   has_many :crs
 
-  has_many :dm_users
-  has_many :dms, through: :dm_users
+  # has_many :dm_users
+  # has_many :dms, through: :dm_users
   # has_many :likes
   # has_many :dm_users
   # has_many :dms, through: :dm_users

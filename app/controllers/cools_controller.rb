@@ -7,6 +7,12 @@ class CoolsController < ApplicationController
     @cool = Page.find_by(id: @like.page_id)
     @like_count = Cool.where(page_id: params[:page_id]).count
 
+    # if @cr_nil != nil || @cute_nil != nil || @scared_nil != nil || @healing_nil != nil || @fun_nil != nil || @interesting_nil != nil || @thoughtprovoking_nil != nil
+      # ※保存時にかっこいいテーブル以外の感情テーブルにある同じユーザーIDのカラムを削除する指示を入力する                  
+    # end
+
+
+
     # 詳細ページに戻る
     redirect_to page_path(@cool)   # 追記する
     
