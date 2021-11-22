@@ -1,3 +1,7 @@
+.top-page-header{
+  width: 1425px;
+}
+
 // 下線部削除
 a {
   text-decoration: none;
@@ -13,7 +17,8 @@ header{
  }
 
 .main {
-  background: black;  
+  background: black;
+  width: 1425px;
 }
 
 // タイトル
@@ -218,8 +223,8 @@ header{
 
 .ad-footer-contents{
   height:100px;
-  width: 100%;
+  // width: 100%;
   background-color: rosybrown;
-  
+  width: 1425px;  
   // text-align: justify;
  }
