@@ -189,6 +189,24 @@ class PagesController < ApplicationController
 
     @des_id = Review.find_by(user_id: current_user,repl: nil)
 
+    # 一番多いレコード数の抽出
+    array = [Cr.where(page_id: params[:id]).count,Cool.where(page_id: params[:id]).count,Cute.where(page_id: params[:id]).count,Scared.where(page_id: params[:id]).count,Healing.where(page_id: params[:id]).count,Fun.where(page_id: params[:id]).count,Interesting.where(page_id: params[:id]).count,Thoughtprovoking.where(page_id: params[:id]).count]
+
+    # 感情名の取得
+    # array_name = [Cr.table_name,Cool.table_name,Cute.table_name,Scared.table_name,Healing.table_name,Fun.table_name,Interesting.table_name,Thoughtprovoking.table_name]
+    array_name = ["悲しい","かっこいい","可愛い","怖い","癒される","楽しい","面白い","考えさせられる"]
+
+    @max = array[0]
+    @max_name = array_name[0]    
+
+    array.length.times { |i|
+        if @max < array[i]
+            @max = array[i]
+            @max_name = array_name[i]
+        end
+    }
+    #// 一番多いレコード数の抽出
+
   end
 
   def update

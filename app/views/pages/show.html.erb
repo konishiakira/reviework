@@ -12,8 +12,20 @@
         ↑ここに感情アイコン画像とユーザーの選択したアイコンの統計を表示予定です。
           </div>
       <% if user_signed_in? %>
-        アイコンクリックカウント
-        <%= @like_count = Cr.where(page_id: params[:id]).count %>
+
+        <%# 感情テーブルのレコードが一番多いものを表示 %>
+        <%= "#{@max}人のユーザーが#{@max_name}と感じています。" %>
+
+          <%# アイコンクリックカウント %>
+          <%#= @like_count = Cr.where(page_id: params[:id]).count %>
+          <%#= @like_count = Cool.where(page_id: params[:id]).count %>
+          <%#= @like_count = Cute.where(page_id: params[:id]).count %>
+          <%#= @like_count = Scared.where(page_id: params[:id]).count %>
+          <%#= @like_count = Healing.where(page_id: params[:id]).count %>
+          <%#= @like_count = Fun.where(page_id: params[:id]).count %>
+          <%#= @like_count = Interesting.where(page_id: params[:id]).count %>
+          <%#= @like_count = Thoughtprovoking.where(page_id: params[:id]).count %>
+
       <% end %>
   </div>
 
